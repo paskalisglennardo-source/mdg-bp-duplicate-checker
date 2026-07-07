@@ -152,14 +152,14 @@ Copy output panjang base64-nya, lalu buat secret:
 |---|---|---|
 | `GOOGLE_SERVICE_ACCOUNT_JSON_B64` | Secret / Encrypt | hasil base64 dari script |
 
-### Secret opsional untuk access code web
+### Access control
 
-| Name | Type | Value |
-|---|---|---|
-| `API_ACCESS_CODE` | Secret / Encrypt | contoh `MDG-2026-SECURE` |
+Frontend sudah dipatch supaya user **tidak perlu input API URL** dan **tidak perlu input Access Code**.
 
-Kalau `API_ACCESS_CODE` diisi, user harus input access code di UI.
-Kalau dikosongkan, UI bisa dipakai tanpa access code.
+- API URL otomatis memakai domain Cloudflare Pages yang sama: `location.origin + /api/check`.
+- Jangan set `API_ACCESS_CODE` untuk penggunaan UI normal, karena access code tidak lagi diminta di halaman.
+- Untuk proteksi production, gunakan **Cloudflare Access / Zero Trust** di depan domain Pages agar hanya user/email internal yang bisa membuka web dan API.
+- `API_ACCESS_CODE` masih bisa dipakai hanya untuk skenario server-to-server dengan `REQUIRE_API_ACCESS_CODE=true`, tetapi bukan untuk frontend biasa.
 
 Setelah menambah variable/secret, lakukan **Retry deployment** atau push commit kecil agar Pages redeploy.
 
@@ -282,8 +282,9 @@ Karena data sensitif:
 2. Jangan commit `.env` dan `service_account.json`.
 3. Google Sheet jangan dipublish.
 4. Share Sheet hanya ke service account dan admin.
-5. Aktifkan `API_ACCESS_CODE`.
-6. Idealnya tambahkan Cloudflare Access / Zero Trust untuk restrict domain/email internal.
+5. Jangan expose Google Sheet ID/credential ke frontend.
+6. Aktifkan Cloudflare Access / Zero Trust untuk restrict domain/email internal.
+7. Jangan set `REQUIRE_API_ACCESS_CODE=true` kecuali API dipakai server-to-server, karena UI tidak lagi menampilkan Access Code.
 
 ---
 
