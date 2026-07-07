@@ -1,0 +1,12 @@
+MDG BP Duplicate Checker - Cloudflare Pages GitHub Import package
+
+Deploy target:
+- Cloudflare Pages via GitHub import
+- No local Node.js required
+- No Wrangler required
+
+Important:
+- Do not commit .env
+- Do not commit service_account.json
+- Set GOOGLE_SERVICE_ACCOUNT_JSON_B64 in Cloudflare Pages Variables and Secrets
+- Run Python sync locally/on Windows server to populate protected Google Sheet
