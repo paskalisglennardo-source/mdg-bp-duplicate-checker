@@ -6,7 +6,7 @@ pages_build_output_dir = "./public"
 # Non-secret config. Safe for private repo. The Sheet itself must remain protected/private.
 SHEET_ID = "1VepIImbAMSMaDvRo6Vos9nRzxjiVWUYcestTizNJSjo"
 SIMILARITY_THRESHOLD = "92"
-MAX_CANDIDATES = "200000"
+MAX_CANDIDATES = "300000"
 MAX_BATCH_ROWS = "10000"
 RANGE_CACHE_SECONDS = "300"
 RATE_LIMIT_PER_MIN = "60"
