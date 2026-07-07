@@ -10,3 +10,5 @@ MAX_CANDIDATES = "300000"
 MAX_BATCH_ROWS = "10000"
 RANGE_CACHE_SECONDS = "300"
 RATE_LIMIT_PER_MIN = "60"
+
+# Updated max candidates for production
