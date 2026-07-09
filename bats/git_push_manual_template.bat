@@ -15,7 +15,7 @@ if "%REPO_URL%"=="https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git" (
 
 git init
 git add .
-git commit -m "Initial Cloudflare Pages Git import version"
+git commit -m "Initial Vercel deploy version"
 git branch -M main
 git remote remove origin 2>nul
 git remote add origin %REPO_URL%

@@ -1,5 +1,5 @@
 """
-Sync MDG BP data from PostgreSQL to protected Google Sheet with compact indexes for Cloudflare Worker.
+Sync MDG BP data from PostgreSQL to protected Google Sheet with compact indexes for the duplicate-checker API.
 
 Output tabs:
 - BP_DATABASE      : bp_id, bp_type_id, name_1, address, norm_text, norm_digits, text_len
@@ -169,7 +169,7 @@ def prepare_indexes(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Da
     cell_estimate = len(bp_out) * len(bp_out.columns) + len(ktp_out) * len(ktp_out.columns) + 10000
     if cell_estimate > int(os.environ.get("GSHEET_MAX_CELL_WARNING", "9500000")):
         logging.warning(
-            "Estimated Google Sheet cells %,d is close to or above safe limit. Consider reducing columns or moving index to Cloudflare D1/R2.",
+            "Estimated Google Sheet cells %,d is close to or above safe limit. Consider reducing columns or moving index to a dedicated database.",
             cell_estimate,
         )
 

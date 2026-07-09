@@ -270,7 +270,7 @@
         <div class="logo">MDG</div>
         <div>
           <h1>BP Duplicate Checker</h1>
-          <p>Protected Google Sheet database · Same-domain Cloudflare API</p>
+          <p>Protected Google Sheet database · Same-domain Vercel API</p>
         </div>
       </div>
       <div class="pill"><span id="healthDot" class="dot"></span><span id="healthText">Checking API health...</span></div>
@@ -279,12 +279,12 @@
     <section class="hero">
       <div class="card intro">
         <div class="eyebrow">Secure Master Data Validation</div>
-        <h2>Prevent duplicate BP before it reaches <span>SAP.</span></h2>
+        <h2>Prevent duplicate BP before it reaches <span>MDG.</span></h2>
         <p class="sub">Input Name 1, Address, and KTP Number only. The checker compares against the protected database using KTP exact match and optimized Name+Address similarity via indexed Google Sheet ranges.</p>
         <div class="metrics">
           <div class="metric"><strong>Protected</strong><span>Sheet stays private</span></div>
           <div class="metric"><strong>Indexed</strong><span>No 1M-row full scan</span></div>
-          <div class="metric"><strong>Realtime</strong><span>Cloudflare edge API</span></div>
+          <div class="metric"><strong>Realtime</strong><span>Vercel serverless API</span></div>
         </div>
       </div>
 
@@ -374,7 +374,7 @@
     }
 
     function errorHtml(msg) {
-      return `<div class="result-head"><div class="status">Unable to check</div><span class="badge fail">ERROR</span></div><div class="result-body"><p class="reason">${escapeHtml(msg)}</p><p class="small">Check Cloudflare variables/secrets, service account sharing, Google Sheet protection, or Cloudflare Access policy.</p></div>`;
+      return `<div class="result-head"><div class="status">Unable to check</div><span class="badge fail">ERROR</span></div><div class="result-body"><p class="reason">${escapeHtml(msg)}</p><p class="small">Check Vercel environment variables, service account sharing, Google Sheet protection, or Vercel Deployment Protection.</p></div>`;
     }
 
     function renderResult(data) {
